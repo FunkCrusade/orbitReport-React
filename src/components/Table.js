@@ -1,15 +1,28 @@
+import React from "react";
+
 const Table = ({ sat }) => {
   return (
       <table>
        <thead>
         <tr>
-          <th>Header TBD</th>
+          <th>Name</th>
+          <th>Type of Satellite</th>
+          <th>Launch Date</th>
+          <th>Status</th>
         </tr>
         </thead>
+
         <tbody>
-        <tr>
-          <td>Row Data TBD</td>
-        </tr>
+          {sat.map((sat, id) =>{
+            return ( 
+            <tr key={id}>
+              <td>{sat.name}</td>
+              <td>{sat.type}</td>
+              <td>{sat.launchDate}</td>
+              <td>{sat.operational ? "Active" : "Inactive"}</td>
+            </tr>
+            )
+          })}
         </tbody>
       </table>
   );
